@@ -24,7 +24,6 @@ const App = (props: AppProps) => {
       <div className={styles.adder}>
         <Input
             className={styles.input}
-            type='number'
             placeholder='点此输入快递单号~'
             onChange={(e) => {
                 setFilter(e.target.value.trim());
