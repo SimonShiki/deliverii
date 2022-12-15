@@ -2,10 +2,11 @@ import illustrationImage from '@/assets/deliverii.svg'
 import styles from './App.module.scss'
 import Input from '@/components/Input'
 import ExpressList from '@/components/ExpressList'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const App = () => {
-    const [filter, setFilter] = useState(null);
+const App = (props) => {
+    const [filter, setFilter] = useState('')
+    const [list, setList] = useState(Object.values(props.storage));
   return (
     <div className={styles.container}>
       <div>
@@ -28,22 +29,9 @@ const App = () => {
       <div className={styles.content}>
         <ExpressList
             filter={filter}
-            expresses={[{
-                name: '别针帆布袋',
-                id: '381481491491'
-            }, {
-                name: '别针鼠标垫',
-                id: '381481491491'
-            }, {
-                name: '别针鼠标垫',
-                id: '381481491491'
-            }, {
-                name: '别针鼠标垫',
-                id: '381481491491'
-            }, {
-                name: '别针鼠标垫',
-                id: '381481491491'
-            }]}
+            storage={props.storage}
+            expresses={list}
+            setList={setList}
         />
       </div>
     </div>
