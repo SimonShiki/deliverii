@@ -2,11 +2,11 @@ import classNames from 'classnames'
 import styles from './input.module.scss'
 
 type InputProps = {
-  className: string;
-  defaultValue: string;
-  placeholder: string;
-  onChange: () => {};
-  type: 'string' | 'number';
+  className?: string;
+  defaultValue?: string;
+  placeholder?: string;
+  onChange?: (e: any) => void;
+  [propName: string]: any;
 }
 
 const Input = (props: InputProps) => {

@@ -2,11 +2,12 @@ import classNames from 'classnames'
 import styles from './express-card.module.scss'
 import ztoIcon from './zto.png'
 import yundaIcon from './yunda.svg'
+import { DeliverInfo } from '../../type/deliver'
 
 export type CardProps = {
-  className: string;
-  name: string;
-  onClick: () => {};
+  className?: string;
+  onClick: () => void;
+  data: DeliverInfo
 }
 
 const ExpressList = (props: CardProps) => {

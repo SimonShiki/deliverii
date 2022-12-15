@@ -1,26 +1,29 @@
 const KEY = 'deliverii'
 
+export type StorageData = {
+    [key: string]: any
+};
+
 const createStorage = () => {
+    let data: StorageData = {}
     const handler = {
-        set: (target, prop, value) => {
-            target[prop] = value
+        set: (target: StorageData, prop: string, value: any) => {
+            target[prop as keyof typeof data] = value
             localStorage.setItem(KEY, JSON.stringify(target))
             return true
         },
-        deleteProperty: (target, prop) => {
-            delete target[prop]
+        deleteProperty: (target: StorageData, prop: string) => {
+            delete target[prop as keyof typeof data]
             localStorage.setItem(KEY, JSON.stringify(target))
             return true
         }
     }
-    let data = {}
     try {
         const storageItem = localStorage.getItem(KEY)
-        data = JSON.parse(storageItem)
-        if (data === null) {
+        if (storageItem === null) {
             localStorage.setItem(KEY, '{}')
             data = {}
-        }
+        } else data = JSON.parse(storageItem)
     } catch (e) {
         localStorage.setItem(KEY, '{}')
     }

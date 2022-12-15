@@ -1,27 +1,29 @@
 import classNames from 'classnames'
 import styles from './info.module.scss'
-import Input from '@/components/Input'
-import Timeline from '@/components/Timeline'
+import Input from '../Input'
+import Timeline from '../Timeline'
 import illustrationImage from '@/assets/deliverii2.svg'
+import { DeliverInfo } from '../../type/deliver'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
-export type InfoProps = {
-  className: string;
+type InfoProps = {
+  className?: string;
   isOpen: boolean;
-  info: object;
-  onClose: () => {};
+  info: DeliverInfo | null;
+  onClose: (info: DeliverInfo) => void;
 }
 
 const Info = (props: InfoProps) => {
+    if (props.info === null) return <></>
     const currentInfo = props.info
     const [timelineData, setTimelineData] = useState([])
     useEffect(() => {
-        if (!props.info) return;
+        if (!props.info) return
         const fetchData = async () => {
             // todo
         }
-        fetchData();
+        fetchData()
     }, [props.info])
     return (
         <div
@@ -34,7 +36,7 @@ const Info = (props: InfoProps) => {
                     [styles.mask]: props.isOpen
                 })}
                 onClick={() => {
-                    props.onClose(currentInfo);
+                    props.onClose(currentInfo)
                 }}
             />
             {props.isOpen && (
@@ -46,8 +48,8 @@ const Info = (props: InfoProps) => {
                                 className={styles.name}
                                 defaultValue={props.info.name}
                                 placeholder='快递名'
-                                onChange={(e) => {
-                                    currentInfo.name = e.target.value.trim()
+                                onChange={(e: any) => {
+                                    if (currentInfo !== null) currentInfo.name = e.target.value.trim()
                                 }}
                             />
                             <p className={styles.status}>{props.info.id}</p>

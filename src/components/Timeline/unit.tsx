@@ -1,9 +1,11 @@
 import classNames from 'classnames'
 import styles from './timeline.module.scss'
 
-export type UnitProps = {
-  className: string;
-  variant: 'top' | 'bottom' | 'both' | 'standalone';
+type UnitProps = {
+    key: number;
+    className?: string;
+    variant: 'top' | 'bottom' | 'both' | 'standalone';
+    data: any;
 }
 
 const TimelineUnit = (props: UnitProps) => {

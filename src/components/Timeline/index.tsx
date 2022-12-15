@@ -1,14 +1,16 @@
 import classNames from 'classnames'
 import styles from './timeline.module.scss'
-import Unit from './unit.tsx';
+import Unit from './unit';
 import emptyImage from '@/assets/empty.svg'
 
-export type TimelineProps = {
+type LineVariant = 'top' | 'bottom' | 'both' | 'standalone'
+
+type TimelineProps = {
   className: string;
-  events: object[]
+  events: object[];
 }
 
-const Timeline = (props: UnitProps) => {
+const Timeline = (props: TimelineProps) => {
     if (!Array.isArray(props.events) || props.events.length < 1) {
         return (
             <div className={styles.empty}>
@@ -19,8 +21,8 @@ const Timeline = (props: UnitProps) => {
     }
     return (
         <div className={classNames(styles.container, props.className)}>
-            {props.events.map((item, index) => {
-                let variant = null
+            {props.events.map((item: any, index) => {
+                let variant: LineVariant = 'standalone'
                 if (index < props.events.length - 1 && index > 0) variant = 'both'
                 else if (props.events.length === 1) variant = 'standalone'
                 else if (index === 0) variant = 'bottom'

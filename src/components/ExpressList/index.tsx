@@ -1,19 +1,22 @@
 import classNames from 'classnames'
 import styles from './express-list.module.scss'
 import emptyImage from '@/assets/empty.svg'
-import ExpressCard from '@/components/ExpressCard'
-import Info from '@/components/Info'
+import ExpressCard from '../ExpressCard'
+import { DeliverInfo } from '../../type/deliver'
+import Info from '../Info'
 import { useState } from 'react'
+import { StorageData } from '../../utils/storage';
 
-export type ListProps = {
-  className: string;
-  expresses: object[];
-  storage: Proxy;
+type ListProps = {
+  className?: string;
+  expresses: DeliverInfo[];
+  storage: StorageData;
   filter: string;
+  setList: any;
 }
 
 const ExpressList = (props: ListProps) => {
-    const [currentInfo, setCurrentInfo] = useState(null)
+    const [currentInfo, setCurrentInfo] = useState<DeliverInfo | null>(null)
     const list = props.filter === '' ?
         props.expresses : props.expresses?.filter(item => item.id.startsWith(props.filter))
     if (props.filter !== '' && list.length < 1) {

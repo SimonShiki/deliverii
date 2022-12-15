@@ -1,10 +1,15 @@
 import illustrationImage from '@/assets/deliverii.svg'
 import styles from './App.module.scss'
-import Input from '@/components/Input'
-import ExpressList from '@/components/ExpressList'
+import Input from './components/Input'
+import ExpressList from './components/ExpressList'
 import { useState, useEffect } from 'react';
+import { StorageData } from './utils/storage';
 
-const App = (props) => {
+type AppProps = {
+  storage: StorageData;
+}
+
+const App = (props: AppProps) => {
     const [filter, setFilter] = useState('')
     const [list, setList] = useState(Object.values(props.storage));
   return (
@@ -12,7 +17,7 @@ const App = (props) => {
       <div>
         <img src={illustrationImage} className={styles.illustration} alt="Illustration" />
       </div>
-      <div clsssName={styles.header}>
+      <div className={styles.header}>
         <p className={styles.title}>Deliverii</p>
         <p className={styles.slogan}>简洁的快递查询</p>
       </div>
