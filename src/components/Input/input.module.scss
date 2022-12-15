@@ -1,0 +1,15 @@
+.input {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 0.7rem 0.5rem;
+    outline-style: none;
+    cursor: text;
+    overflow: hidden;
+    font-weight: 500;
+    border: 0;
+}
+
+.input::placeholder {
+    font-weight: 500;
+    font-size: 1em;
+}

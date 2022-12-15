@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Smiley Sans';
+  src: url('ss.woff2');
+}
+
+:root {
+  font-family: 'Smiley Sans', Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #213547;
+  background-color: #ffffff;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

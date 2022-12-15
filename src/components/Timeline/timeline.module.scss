@@ -1,0 +1,51 @@
+.empty {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    text-align: center;
+
+    .illustration {
+        height: 8em;
+    }
+    
+    .tips {
+        font-size: 14px;
+        color: #8a8a8a;
+    }
+}
+
+.unit {
+    width: 100%;
+    display: flex;
+    min-height: 3.5rem;
+    align-items: center;
+    .line {
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        .standalone {
+            width: 0.8rem;
+            height: 0.8rem;
+            background-color: #407BFF;
+            border-radius: 50%;
+        }
+    
+        .connect {
+            width: 0.1rem;
+            height: calc(calc(3.5rem - 0.8rem) / 2);
+            background-color: #407BFF;
+            margin: 0 auto;
+        }
+        
+        .hidden {
+            width: 0.1rem;
+            height: calc(calc(3.5rem - 0.8rem) / 2);
+            background-color: transparent;
+            margin: 0 auto;
+        }
+    }
+    
+    .content {
+        margin: 0;
+        font-size: 14px;
+        word-break: break-word;
+    }
+}
