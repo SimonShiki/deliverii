@@ -20,6 +20,8 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "sass": "^1.56.2",
     "typescript": "^4.9.3",
-    "vite": "^4.0.0"
+    "vite": "^4.0.0",
+    "vite-plugin-progress": "^0.0.6",
+    "vite-plugin-pwa": "^0.14.0"
   }
 }
